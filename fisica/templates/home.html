@@ -1,0 +1,707 @@
+{% extends 'base.html' %}
+
+{% load mathfilters %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+  <br>
+  <ul>
+    <li>
+      <h3>Obiettivo: </h3><h4>Studiare la relazione tra lo spazio percorso da un manubrio su un tratto rettilineo inclinato e il tempo impiegato a percorrerlo</h4>
+    </li>
+    <li>
+      <h3>Introduzione</h3>
+      Un moto rettilineo è uniformemente accelerato quando la sua velocità aumenta in modo costante secondo la relazione: \[ v = v_0 + at \] Velocità e tempo
+      sono direttamente proporzionali mentre spostamento e tempo sono proporzionali in modo quadratico, secondo l'equazione \[ s = s_0 + v_0t + ½ a t^2  \]
+      Nel nostro caso $ s_0 $ è uguale a 0 poichè il nostro sistema di riferimento parte dal punto di partenza del manubrio e $ v_0t $ è anch'esso uguale a 0 poichè il manubrio parte da fermo.
+    </li>
+    <br>
+    <li>
+      <h3>Procedimento</h3>
+      <h5>Materiali e Strumenti</h5>
+
+        Materiali:
+        <ul>
+        <li>Una rotaia</li>
+        <li>Un manubrio</li>
+        <li>Due supporti per la rotaia, uno a altezza fissa e uno a altezza variabile</li>
+        <li>Supporto per la bandierina</li>
+        <li>Bandierina</li>
+        </ul>
+        Strumenti:
+        <ul>
+        <li>Metro a nastro (sensibilità $0,1 cm$)</li>
+        <li>Cronometro (sensibilità $0,01s$)</li>
+      </ul>
+    </li>
+    <h5>-Procedimento</h5>
+    <ul>
+      <li>Alzare il supporto estendibile in modo da creare un dislivello fra i due supporti e posizionare la rotaia sopra di essi. </li>
+      <li>Posizionare la bandiera a una distanza arbitraria dall'inizio della rotaia.
+         Prendere il manubrio e porlo sulla parte più alta della rotaia.</li>
+         <li>
+          Lasciare il manubrio e contemporaneamente iniziare a prendere il tempo con il cronometro. Appena il manubrio arriva alla bandierina precedentemente
+          posizionata, fermare il cronometro e prendere il tempo (prendendo sempre lo stesso punto di riferimento, come la parte esterna del manubrio). Ripetere
+          questa procedura per 3 volte riportando ogni volta i tempi ottenuti su una tabella.
+
+        </li>
+        <li>Ripetere questi passaggi per 12 volte, cambiando ogni volta la distanza tra la bandierina e la parte più alta della rotaia.</li>
+    </ul>
+
+  </ul>
+
+  <h5>Dati: </h5>
+  <p>Di seguito i dati ottenuti eseguendo l'esperimento. $ t_1 $, $ t_2 $, $ t_3 $ sono i tre tempi ottenuti nelle misurazioni, $ t_m $ è la loro media e $ e_m $ è
+     la loro semidispersione (approssimata ai decimi). L'errore sullo spazio invece è fisso a $ 0,5 $ per le difficoltà rilevate durante le misurazioni.</p>
+
+
+   <table class="table table-striped">
+     <thead>
+       <th scope="col">$ Lunghezza (cm) $</th>
+       <th scope="col">$ t_1(s) $</th>
+       <th scope="col">$ t_2(s) $</th>
+       <th scope="col">$ t_3(s) $</th>
+       <th scope="col">$ t_m(s) $</th>
+       <th scope="col">$ e_m $</th>
+     </thead>
+     <tbody>
+       <tr>
+         <td>${{es.es1.lunghezza}}$</td>
+         <td>${{es.es1.misurazione1}}$</td>
+         <td>${{es.es1.misurazione2}}$</td>
+         <td>${{es.es1.misurazione3}}$</td>
+         <td>${{es.es1.media}}$</td>
+         <td id="1errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es2.lunghezza}}$</td>
+         <td>${{es.es2.misurazione1}}$</td>
+         <td>${{es.es2.misurazione2}}$</td>
+         <td>${{es.es2.misurazione3}}$</td>
+         <td>${{es.es2.media}}$</td>
+         <td id="2errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es3.lunghezza}}$</td>
+         <td>${{es.es3.misurazione1}}$</td>
+         <td>${{es.es3.misurazione2}}$</td>
+         <td>${{es.es3.misurazione3}}$</td>
+         <td>${{es.es3.media}}$</td>
+         <td id="3errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es4.lunghezza}}$</td>
+         <td>${{es.es4.misurazione1}}$</td>
+         <td>${{es.es4.misurazione2}}$</td>
+         <td>${{es.es4.misurazione3}}$</td>
+         <td>${{es.es4.media}}$</td>
+         <td id="4errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es5.lunghezza}}$</td>
+         <td>${{es.es5.misurazione1}}$</td>
+         <td>${{es.es5.misurazione2}}$</td>
+         <td>${{es.es5.misurazione3}}$</td>
+         <td>${{es.es5.media}}$</td>
+         <td id="5errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es6.lunghezza}}$</td>
+         <td>${{es.es6.misurazione1}}$</td>
+         <td>${{es.es6.misurazione2}}$</td>
+         <td>${{es.es6.misurazione3}}$</td>
+         <td>${{es.es6.media}}$</td>
+         <td id="6errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es7.lunghezza}}$</td>
+         <td>${{es.es7.misurazione1}}$</td>
+         <td>${{es.es7.misurazione2}}$</td>
+         <td>${{es.es7.misurazione3}}$</td>
+         <td>${{es.es7.media}}$</td>
+         <td id="7errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es8.lunghezza}}$</td>
+         <td>${{es.es8.misurazione1}}$</td>
+         <td>${{es.es8.misurazione2}}$</td>
+         <td>${{es.es8.misurazione3}}$</td>
+         <td>${{es.es8.media}}$</td>
+         <td id="8errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es9.lunghezza}}$</td>
+         <td>${{es.es9.misurazione1}}$</td>
+         <td>${{es.es9.misurazione2}}$</td>
+         <td>${{es.es9.misurazione3}}$</td>
+         <td>${{es.es9.media}}$</td>
+         <td id="9errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es10.lunghezza}}$</td>
+         <td>${{es.es10.misurazione1}}$</td>
+         <td>${{es.es10.misurazione2}}$</td>
+         <td>${{es.es10.misurazione3}}$</td>
+         <td>${{es.es10.media}}$</td>
+         <td id="10errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es11.lunghezza}}$</td>
+         <td>${{es.es11.misurazione1}}$</td>
+         <td>${{es.es11.misurazione2}}$</td>
+         <td>${{es.es11.misurazione3}}$</td>
+         <td>${{es.es11.media}}$</td>
+         <td id="11errore">{{es.es1.errore}}</td>
+       </tr>
+       <tr>
+         <td>${{es.es12.lunghezza}}$</td>
+         <td>${{es.es12.misurazione1}}$</td>
+         <td>${{es.es12.misurazione2}}$</td>
+         <td>${{es.es12.misurazione3}}$</td>
+         <td>${{es.es12.media}}$</td>
+         <td id="12errore">{{es.es1.errore}}</td>
+       </tr>
+     </tbody>
+  </table>
+  <h5>Rappresentazione grafica dei dati: </h5>
+   <canvas id="dati" width="400" height="400" aria-label="Dati raccolti"></canvas>
+   <h5>Codap: </h5>
+   <iframe width="100%" height="600px" frameborder="no" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="https://codap.concord.org/releases/latest/static/dg/en/cert/index.html#shared=77911"></iframe>
+
+   <h5>Analisi dati</h5>
+    Analizziamo più in profondità l'equazione oraria: $s = s_0 + v_0t + ½ a t^2$. In questo caso $s_0$ e $v_0$ sono uguale a 0, poichè facciamo partire il manubrio da
+        fermo e dalla coordinata 0 del nostro sistema di riferimento; perciò avremo: \[s = ½ a t^2\] Per dimostrare questa equazione dobbiamo calcolare $a$, che deve essere costante . \[  a = 2s / t^2 \]
+
+        Calcoliamo ora il primo rapporto:
+        <table class="table table-striped">
+          <thead>
+            <th>$s(cm)$</th>
+            <th>$t_m(s)$</th>
+            <th>$t_m^2(s^2)$</th>
+            <th>$a (cm/s^2)$</th>
+            <th>$e_m$</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td id ="spazio1">{{es.es1.lunghezza}}</td>
+              <td>{{es.es1.media}}</td>
+              <td id="quadrato1">{{es.es1.media|mul:es.es1.media}}</td>
+              <td id="rapporto1"></td>
+              <td id="errore1">{{es.es1.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio2">{{es.es2.lunghezza}}</td>
+              <td>{{es.es2.media}}</td>
+              <td id="quadrato2">{{es.es2.media|mul:es.es2.media}}</td>
+              <td id="rapporto2"></td>
+              <td id="errore2">{{es.es2.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio3">{{es.es3.lunghezza}}</td>
+              <td>{{es.es3.media}}</td>
+              <td id="quadrato3">{{es.es3.media|mul:es.es3.media}}</td>
+              <td id="rapporto3"></td>
+              <td id="errore3">{{es.es3.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio4">{{es.es4.lunghezza}}</td>
+              <td>{{es.es4.media}}</td>
+              <td id="quadrato4">{{es.es4.media|mul:es.es4.media}}</td>
+              <td id="rapporto4"></td>
+              <td id="errore4">{{es.es4.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio5">{{es.es5.lunghezza}}</td>
+              <td>{{es.es5.media}}</td>
+              <td id="quadrato5">{{es.es5.media|mul:es.es5.media}}</td>
+              <td id="rapporto5"></td>
+              <td id="errore5">{{es.es5.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio6">{{es.es6.lunghezza}}</td>
+              <td>{{es.es6.media}}</td>
+              <td id="quadrato6">{{es.es6.media|mul:es.es6.media}}</td>
+              <td id="rapporto6"></td>
+              <td id="errore6">{{es.es6.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio7">{{es.es7.lunghezza}}</td>
+              <td>{{es.es7.media}}</td>
+              <td id="quadrato7">{{es.es7.media|mul:es.es7.media}}</td>
+              <td id="rapporto7"></td>
+              <td id="errore7">{{es.es7.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio8">{{es.es8.lunghezza}}</td>
+              <td>{{es.es8.media}}</td>
+              <td id="quadrato8">{{es.es8.media|mul:es.es8.media}}</td>
+              <td id="rapporto8"></td>
+              <td id="errore8">{{es.es8.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio9">{{es.es9.lunghezza}}</td>
+              <td>{{es.es9.media}}</td>
+              <td id="quadrato9">{{es.es9.media|mul:es.es9.media}}</td>
+              <td id="rapporto9"></td>
+              <td id="errore9">{{es.es9.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio10">{{es.es10.lunghezza}}</td>
+              <td>{{es.es10.media}}</td>
+              <td id="quadrato10">{{es.es10.media|mul:es.es10.media}}</td>
+              <td id="rapporto10"></td>
+              <td id="errore10">{{es.es10.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio11">{{es.es11.lunghezza}}</td>
+              <td>{{es.es11.media}}</td>
+              <td id="quadrato11">{{es.es11.media|mul:es.es11.media}}</td>
+              <td id="rapporto11"></td>
+              <td id="errore11">{{es.es11.errore}}</td>
+            </tr>
+            <tr>
+              <td id ="spazio12">{{es.es12.lunghezza}}</td>
+              <td>{{es.es12.media}}</td>
+              <td id="quadrato12">{{es.es12.media|mul:es.es12.media}}</td>
+              <td id="rapporto12"></td>
+              <td id="errore12">{{es.es12.errore}}</td>
+            </tr>
+          </tbody>
+        </table>
+        L' $errore$ $assoluto$ è calcolato moltiplicando l'$errore$ $relativo$, ottenuto dalla somma degli $errori$ $relativi$ (per $s$, quest'ultimo è ottenuto
+        dalla divisione $0,5/s$ mentre per $t_m^2$ dal doppio dell'$errore$ $relativo$ di $t_m$ ottenuto dal rapporto $semidispersione$ e $t_m$)
+        per il rapporto $ 2s / t_m^2 $ (cioè per il valore di $a$).
+        I valori precedentemente ottenuti in un grafico:
+
+        <canvas id="rapporto" width="400" height="200" aria-label="rapporto raccolti"></canvas>
+        <br>
+        <p style="display:inline-block;">Il coefficiente angolare della linea passante più vicina a tutti i punti ha coefficiente angolare di <p style="display:inline-block;" id="coefficiente"></p>. I valori
+        di $a$ sono costanti nei limiti degli errori.</p>
+        <p>
+        Ora rappresentiamo graficamente $s$ e $t_m^2$ usando i dati calcolati precedentemente e dato che $s/t_m^2$ è un rapporto costante la loro rappresentazione grafica consiste in punti appartenenti ad una retta.</p>
+        CODAP:
+        <iframe width="100%" height="600px" frameborder="no" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="https://codap.concord.org/releases/latest/static/dg/en/cert/index.html#shared=78399"></iframe>
+        <canvas id="finale" width="400" height="400"></canvas>
+
+        <h3>Conclusioni</h3>
+        <p>La simulazione fatta in laboratorio dimostra che l'equazione oraria $ s = s_0 + v_0t + ½ a t^2  $ è dimostrata, infatti i valori di $a$ sono pressocchè costanti e $s$ e $t^2$ sono direttamente proporzionali. </p>
+        <br><br><br><br>
+{% endblock %}
+
+
+
+{% block javascript %}
+
+<script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  };
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    var all_nb = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+    for (x = 0; x < 12; x++) {
+      $("#"+all_nb[x]+"errore").html("$0.1$");
+      var quadrato = $('#quadrato'+all_nb[x]).html()
+      var spazio = $('#spazio'+all_nb[x]).html()
+      var rapporto = $('#rapporto'+all_nb[x]).html(String(spazio/quadrato).slice(0,4))
+      $('#quadrato'+all_nb[x]).html(quadrato.slice(0,4))
+
+      var errore = $('#errore'+all_nb[x]).html()
+      var e_t = (((errore/Math.sqrt(quadrato))*2)*quadrato)/quadrato
+      var e_s = (0.5/spazio)
+      var e_assoluto = ((e_t+e_s)*$('#rapporto'+all_nb[x]).html())*2
+      $('#errore'+all_nb[x]).html(String(e_assoluto).slice(0,4))
+    }
+
+
+    Chart.defaults.global.elements.point.pointStyle = "rect"
+    Chart.defaults.global.elements.point.backgroundColor = 'rgba(0, 0, 1, 0.5)'
+    var ctx = $("#dati");
+    var my_ctx = $('#rapporto')
+
+    var data_rapporti = [];
+    var lunghezze = [];
+    var quadrati = [];
+    for (x=0; x<12; x++) {
+      var rapporto = $('#rapporto'+all_nb[x]).html()
+      var l = $('#spazio'+all_nb[x]).html()
+      data_rapporti.push(rapporto*2)
+      lunghezze.push(l)
+      quadrati.push($('#quadrato'+all_nb[x]).html())
+    }
+
+
+
+  var myChart = new Chart(ctx, {
+    type: 'bubble',
+    data: {
+        datasets: [
+          {
+            label: 'Misurazioni',
+            data: [
+            {
+              y: 0,
+              x: 0,
+              r: 3
+            },
+            {
+              y: {{ es.es1.lunghezza }},
+              x: {{ es.es1.media }},
+              r: parseFloat(String({{ es.es1.lunghezza}}/({{ es.es1.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es2.lunghezza }},
+              x: {{ es.es2.media }},
+              r: parseFloat(String({{ es.es2.lunghezza}}/({{ es.es2.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es3.lunghezza }},
+              x: {{ es.es3.media }},
+              r: parseFloat(String({{ es.es3.lunghezza}}/({{ es.es3.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es4.lunghezza }},
+              x: {{ es.es4.media }},
+              r: parseFloat(String({{ es.es4.lunghezza}}/({{ es.es4.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es5.lunghezza }},
+              x: {{ es.es5.media }},
+              r: parseFloat(String({{ es.es5.lunghezza}}/({{ es.es5.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es6.lunghezza }},
+              x: {{ es.es6.media }},
+              r: parseFloat(String({{ es.es6.lunghezza}}/({{ es.es6.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es7.lunghezza }},
+              x: {{ es.es7.media }},
+              r: parseFloat(String({{ es.es7.lunghezza}}/({{ es.es7.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es8.lunghezza }},
+              x: {{ es.es8.media }},
+              r: parseFloat(String({{ es.es8.lunghezza}}/({{ es.es8.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es9.lunghezza }},
+              x: {{ es.es9.media }},
+              r: parseFloat(String({{ es.es9.lunghezza}}/({{ es.es9.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es10.lunghezza }},
+              x: {{ es.es10.media }},
+              r: parseFloat(String({{ es.es10.lunghezza}}/({{ es.es10.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es11.lunghezza }},
+              x: {{ es.es11.media }},
+              r: parseFloat(String({{ es.es11.lunghezza}}/({{ es.es11.media }}**2)).slice(0,3))
+            },
+            {
+              y: {{ es.es12.lunghezza }},
+              x: {{ es.es12.media }},
+              r: parseFloat(String({{ es.es12.lunghezza}}/({{ es.es12.media }}**2)).slice(0,3))
+            },
+            ],
+            borderWidth: 2
+          },
+
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'distanza percorsa (cm)'
+                }
+            }],
+            xAxes: [{
+              ticks: {
+                beginAtZero: true
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "tempo impiegato (s)",
+              }
+            }]
+        }
+    }
+});
+
+function getCookie(name) {var cookieValue = null;if (document.cookie && document.cookie != '') {var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue =   decodeURIComponent(cookie.substring(name.length + 1));break;}
+        }}
+        return cookieValue;
+      }
+
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+var csrftoken = getCookie('csrftoken');
+
+      $.ajax({
+        beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+          xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        },
+        url: '/polyfit/',
+        data: {
+          'xs[]': lunghezze,
+          'ys[]': data_rapporti
+        },
+        method: 'POST',
+        datatype: 'json',
+        success: function(data_response) {
+          $('#coefficiente').html(String(data_response.m).slice(0,6) + " (y = " + String(data_response.m).slice(0,6) + "x + 6.2960)");
+          let chart = new Chart(my_ctx, {
+              type: 'scatter',
+              data: {
+                  datasets: [{
+                      label: 'a',
+                      showLine: false,
+                      data: [
+                      {
+                        x: lunghezze[0],
+                        y: data_rapporti[0]
+                      },
+                      {
+                        x: lunghezze[1],
+                        y: data_rapporti[1]
+                      },
+                      {
+                        x: lunghezze[2],
+                        y: data_rapporti[2]
+                      },
+                      {
+                        x: lunghezze[3],
+                        y: data_rapporti[3]
+                      },
+                      {
+                        x: lunghezze[4],
+                        y: data_rapporti[4]
+                      },
+                      {
+                        x: lunghezze[5],
+                        y: data_rapporti[5]
+                      },
+                      {
+                        x: lunghezze[6],
+                        y: data_rapporti[6]
+                      },
+                      {
+                        x: lunghezze[7],
+                        y: data_rapporti[7]
+                      },
+                      {
+                        x: lunghezze[8],
+                        y: data_rapporti[8]
+                      },
+                      {
+                        x: lunghezze[9],
+                        y: data_rapporti[9]
+                      },
+                      {
+                        x: lunghezze[10],
+                        y: data_rapporti[10]
+                      },
+                      {
+                        x: lunghezze[11],
+                        y: data_rapporti[11]
+                      }
+                      ]
+                  },
+                  {
+                    label: 'retta',
+                    fill: false,
+                    data: [
+
+                    {
+                      x: 0,
+                      y: (0*parseFloat(data_response.m))+6.2960294490987545
+                    },
+                    {
+                      x: 90,
+                      y: (90*parseFloat(data_response.m))+6.2960294490987545
+                    }
+                    ]
+                  }
+                  ],
+              },
+              options: {
+                elements: {
+                    line: {
+                        tension: 0,
+                    }
+                },
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                            beginAtZero: true
+                          },
+                          scaleLabel: {
+                            display: true,
+                            labelString: "accelerazione",
+                          }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                          beginAtZero: true
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: "spazio",
+                        }
+                      }]
+                  }
+              }
+          });
+          }
+        });
+
+
+
+myChart.update();
+
+      $.ajax({
+        beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+          xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        },
+        url: '/polyfit/',
+        data: {
+          'xs[]': quadrati,
+          'ys[]': lunghezze
+        },
+        method: 'POST',
+        datatype: 'json',
+        success: function(data_response) {
+          var ctx_finale = "finale"
+          let chart = new Chart(ctx_finale, {
+              type: 'scatter',
+              data: {
+                  datasets: [{
+                      label: 'L',
+                      showLine: false,
+                      data: [
+                        {
+                          y: lunghezze[0],
+                          x: quadrati[0]
+                        },
+                        {
+                          y: lunghezze[1],
+                          x: quadrati[1]
+                        },
+                        {
+                          y: lunghezze[2],
+                          x: quadrati[2]
+                        },
+                        {
+                          y: lunghezze[3],
+                          x: quadrati[3]
+                        },
+                        {
+                          y: lunghezze[4],
+                          x: quadrati[4]
+                        },
+                        {
+                          y: lunghezze[5],
+                          x: quadrati[5]
+                        },
+                        {
+                          y: lunghezze[6],
+                          x: quadrati[6]
+                        },
+                        {
+                          y: lunghezze[7],
+                          x: quadrati[7]
+                        },
+                        {
+                          y: lunghezze[8],
+                          x: quadrati[8]
+                        },
+                        {
+                          y: lunghezze[9],
+                          x: quadrati[9]
+                        },
+                        {
+                          y: lunghezze[10],
+                          x: quadrati[10]
+                        },
+                        {
+                          y: lunghezze[11],
+                          x: quadrati[11]
+                        }
+                      ]
+                  },
+                  {
+                    fill: false,
+                    data: [
+
+                    {
+                      x: 0,
+                      y: 2.0931169167149006
+                    },
+                    {
+                      x: 35,
+                      y: (35*parseFloat(data_response.m))+2.0931169167149006
+                    }
+                    ]
+                  }
+                  ],
+              },
+              options: {
+                elements: {
+                    line: {
+                        tension: 0,
+                    }
+                },
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                            beginAtZero: true
+                          },
+                          scaleLabel: {
+                            display: true,
+                            labelString: "spazio",
+                          }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                          beginAtZero: true
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: "tempo medio al quadrato",
+                        }
+                      }]
+                  }
+              }
+          });
+          }
+        });
+
+      });
+</script>
+
+{% endblock %}

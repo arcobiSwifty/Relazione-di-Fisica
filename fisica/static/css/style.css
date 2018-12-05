@@ -1,0 +1,23 @@
+
+html, body {
+  width: 100%;
+}
+
+.title-header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 60px;
+  background-color: grey;
+  width: 100%;
+}
+@font-face {
+    font-family: "chalkduster";
+    src: url("../Chalkduster/Chalkduster.ttf");
+}
+h1.chalkduster-font {
+    font-family: "chalkduster", Verdana;
+    font-size: 40px;
+}
+.white {
+  color: #fff;
+}
